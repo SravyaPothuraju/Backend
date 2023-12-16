@@ -1,0 +1,42 @@
+{% extends 'Login/index.html' %}
+
+{% block content %}
+<!------------------- login form -------------------------->
+<div class="form-box">
+    <div class="register-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="Top">
+            <header>Sign Up</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Firstname" name="first_name">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Lastname" name="last_name">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Username" name="username">
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email" name="email">
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" name="password1">
+                <i class="bx bx-lock-alt"></i>
+                    <input type="password" class="input-field" placeholder="Confirm Password" name="password2">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Register" name="register">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
