@@ -1,33 +1,84 @@
-{% extends 'Login/index.html' %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'Login/CSS/lstyle.css' %}">
+    <title>FLY SHARE | Login & Registration</title>
+</head>
 
-        <!------------------- login form -------------------------->
+<body>
+    <div class="back-button">
+        <a href="{% url 'home-page' %}" class="back-link">
+            <span class="back-arrow">&lt;</span> Back
+        </a>
+    </div>
+    <div class="wrapper">
+        <div class="form-box">
+            <div class="login-container" id="login">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="top">
+                        <header>Login</header>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Username or Email" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Password" required>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box"> 
+                        <!-- <form action="{% url 'base' %}" method="get"> -->
+                            <input type="submit" class="submit" value="Sign In" name="sign_in">  
+                        <!-- </form>  -->
+                    </div>
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="login-check">
+                            <label for="login-check"> Remember Me</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="{% url 'password_reset' %}">Forgot password?</a></label>
+                        </div>
+                        <div class="bottom">
+                    
+                            <span>Don't have an account? <a href="{% url 'signup' %}"  style="color: black;">Sign Up</a></span>
 
-<div class="login-container" id="login">
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="top">
-            <header>Login</header>
-        </div>
-        <div class="input-box">
-            <input type="text" class="input-field" placeholder="Username" name="username">
-            <i class="bx bx-user"></i>
-        </div>
-        <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" name="user_password">
-            <i class="bx bx-lock-alt"></i>
-        </div>
-        <div class="input-box">
-            <input type="submit" class="submit" value="Sign In" name="sign_in">
-        </div>
-        <div class="two-col">
-            
-            <div class="two">
-                <label><a href="{% url 'password_reset' %}">Forgot password?</a></label>
+                            
+
+                        </div>
+                    </div>
+                </form>
             </div>
+
         </div>
-        
-    </form>
-</div>
-{% endblock content %}
+    </div>
+
+
+    <script>
+
+        var a = document.getElementById("loginBtn");
+        var b = document.getElementById("registerBtn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+
+        function login() {
+            x.style.left = "4px";
+            y.style.right = "-520px";
+            a.className += " white-btn";
+            b.className = "btn";
+            x.style.opacity = 1;
+            y.style.opacity = 0;
+        }
+    </script>
+
+</body>
+
+</html>
+<div>{% block content %} {% endblock %}</div>
